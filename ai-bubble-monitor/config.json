@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "description": "AI 泡沫探测器 — 监测配置",
+  "schedule": "每周一 09:00 UTC+8",
+  "companies": {
+    "openai":    {"name": "OpenAI",          "ats": "ashby",      "slug": "openai",      "type": "模型公司"},
+    "anthropic": {"name": "Anthropic",       "ats": "greenhouse", "slug": "anthropic",   "type": "模型公司"},
+    "deepmind":  {"name": "Google DeepMind", "ats": "greenhouse", "slug": "deepmind",    "type": "模型公司"},
+    "bytedance": {"name": "ByteDance",       "ats": "bytedance",  "slug": "bytedance",   "type": "模型+平台", "keyword": "AI"},
+    "xai":       {"name": "xAI",             "ats": "greenhouse", "slug": "xai",         "type": "模型公司"},
+    "mistral":   {"name": "Mistral AI",      "ats": "lever",      "slug": "mistral",     "type": "模型公司"},
+    "stability": {"name": "Stability AI",    "ats": "greenhouse", "slug": "stabilityai", "type": "生成式AI"},
+    "cohere":    {"name": "Cohere",          "ats": "ashby",      "slug": "cohere",      "type": "模型公司"}
+  },
+  "dingtalk_webhook": "",
+  "bubble_thresholds": {
+    "green": [0, 2], "yellow": [3, 5], "orange": [6, 8], "red": [9, 99]
+  }
+}
