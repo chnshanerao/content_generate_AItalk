@@ -1,0 +1,79 @@
+[
+  {
+    "detector": "corpse",
+    "virality": 10,
+    "company": "stability",
+    "headline_en": "STABILITY has only 5 job postings left. The AI bubble has its first body.",
+    "headline_cn": "STABILITY 只剩 5 个岗位了。AI 泡沫已经有尸体了。",
+    "data_points": {
+      "current": 5,
+      "previous": 5
+    },
+    "emotion": "shock",
+    "emotion_cn": "冲击 — \"AI 公司居然真的会死\"",
+    "is_new": false
+  },
+  {
+    "detector": "facepalm",
+    "virality": 9,
+    "company": "openai",
+    "headline_en": "Sam Altman says \"AGI will arrive within a decade — compute is the most precio\" — but the data shows: 否 → 研发占比低于叙事预期",
+    "headline_cn": "Sam Altman 说算力是未来最珍贵的商品，AGI 十年内到来，但数据显示：否 → 研发占比低于叙事预期",
+    "data_points": [
+      {
+        "check": "研发占比是否 >30%？",
+        "passed": false,
+        "message": "否 → 研发占比低于叙事预期"
+      }
+    ],
+    "emotion": "confirmation_bias",
+    "emotion_cn": "确认偏差 — 观众一直怀疑这是营销话术",
+    "is_new": true
+  },
+  {
+    "detector": "facepalm",
+    "virality": 9,
+    "company": "stability",
+    "headline_en": "Former leadership says \"We are the leader in open-source generative AI\" — but the data shows: 否 → 严重萎缩（泡沫破裂典型案例）",
+    "headline_cn": "曾宣称是开源生成式 AI 的领导者，但数据显示：否 → 严重萎缩（泡沫破裂典型案例）",
+    "data_points": [
+      {
+        "check": "总岗位是否 >50？",
+        "passed": false,
+        "message": "否 → 严重萎缩（泡沫破裂典型案例）"
+      }
+    ],
+    "emotion": "confirmation_bias",
+    "emotion_cn": "确认偏差 — 观众一直怀疑这是营销话术",
+    "is_new": true
+  },
+  {
+    "detector": "history_rhyme",
+    "virality": 9,
+    "company": "industry",
+    "headline_en": "AI's revenue/capex ratio (0.18) is almost identical to the dot-com bubble in 1999 (0.17). History doesn't repeat, but it rhymes.",
+    "headline_cn": "AI 行业的收入/投入比（0.18）与 1999 年互联网泡沫（0.17）几乎一模一样。历史不会重复，但会押韵。",
+    "data_points": {
+      "ai_ratio": 0.17857142857142858,
+      "dotcom_ratio": 0.17
+    },
+    "emotion": "anxiety",
+    "emotion_cn": "焦虑 — \"这次真的不一样吗？\"",
+    "is_new": false
+  },
+  {
+    "detector": "corpse",
+    "virality": 8,
+    "company": "cohere",
+    "headline_en": "COHERE jobs dropped -100% in one week. Hiring freeze or stealth layoff?",
+    "headline_cn": "COHERE 岗位一周暴跌 -100%，招聘冻结还是隐性裁员？",
+    "data_points": {
+      "current": 0,
+      "previous": 128,
+      "wow": -100.0
+    },
+    "emotion": "anxiety",
+    "emotion_cn": "焦虑 — \"我投的那家公司是不是也这样？\"",
+    "is_new": true
+  }
+]
