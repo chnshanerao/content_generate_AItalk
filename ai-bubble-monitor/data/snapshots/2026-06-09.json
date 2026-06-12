@@ -1,0 +1,253 @@
+{
+  "date": "2026-06-09",
+  "companies": {
+    "openai": {
+      "total": 722,
+      "gtm": 205,
+      "research": 198,
+      "gtm_ratio": 28.4,
+      "research_ratio": 27.4,
+      "senior_pct": 21.7,
+      "manager_pct": 24.0,
+      "by_department": {
+        "Go To Market": 155,
+        "Scaling": 93,
+        "Applied AI": 82,
+        "Research": 51,
+        "Finance": 35,
+        "Model Deployment for Business": 34,
+        "Marketing": 31,
+        "Security": 27,
+        "User Operations": 25,
+        "Data Science": 21
+      },
+      "by_location": {
+        "San Francisco": 505,
+        "Singapore": 36,
+        "London, UK": 32,
+        "New York City": 21,
+        "Tokyo, Japan": 19,
+        "Remote - US": 18,
+        "Washington, DC": 17,
+        "Seattle": 14,
+        "Seoul, South Korea": 12,
+        "Sydney, Australia": 11
+      }
+    },
+    "anthropic": {
+      "total": 375,
+      "gtm": 108,
+      "research": 95,
+      "gtm_ratio": 28.8,
+      "research_ratio": 25.3,
+      "senior_pct": 28.3,
+      "manager_pct": 23.2,
+      "by_department": {
+        "Sales": 78,
+        "AI Research & Engineering": 67,
+        "Finance": 29,
+        "Engineering & Design - Product": 25,
+        "Applied AI": 24,
+        "Software Engineering - Infrastructure": 24,
+        "Legal": 17,
+        "Security": 17,
+        "Marketing & Brand": 14,
+        "Safeguards (Trust & Safety) ": 14
+      },
+      "by_location": {
+        "San Francisco, CA": 188,
+        "London, UK": 28,
+        "New York City, NY, San Francisco, CA": 22,
+        "New York City, NY, San Francisco, CA, Seattle, WA": 16,
+        "Washington, D.C.": 14,
+        "Remote-Friendly US (Travel Required)": 14,
+        "Dublin, IE": 13,
+        "Tokyo, Japan": 13,
+        "Sydney, Australia": 12,
+        "New York City, NY": 11
+      }
+    },
+    "deepmind": {
+      "total": 40,
+      "gtm": 0,
+      "research": 18,
+      "gtm_ratio": 0.0,
+      "research_ratio": 45.0,
+      "senior_pct": 32.5,
+      "manager_pct": 37.5,
+      "by_department": {
+        "GenAI": 14,
+        "GeminiApp": 7,
+        "Central Operations, Responsibility, and Engagement": 7,
+        "Frontier AI ": 7,
+        "Science": 2,
+        "Office of the CEO": 2,
+        "Inception ": 1
+      },
+      "by_location": {
+        "Mountain View, California, US": 16,
+        "London, UK": 8,
+        "Mountain View, California, US, New York City, New York, US": 4,
+        "Singapore ": 2,
+        "San Francisco, California, US": 1,
+        "Los Angeles, California, US, Mountain View, California, US": 1,
+        "Seattle, Washington, US": 1,
+        "Bangalore, India ": 1,
+        "New York City, New York, US": 1,
+        "Zurich, Switzerland": 1
+      }
+    },
+    "bytedance": {
+      "total": 3690,
+      "gtm": 171,
+      "research": 1545,
+      "gtm_ratio": 4.6,
+      "research_ratio": 41.9,
+      "senior_pct": 27.2,
+      "manager_pct": 18.0,
+      "by_department": {
+        "后端": 549,
+        "运营": 455,
+        "研发": 435,
+        "产品": 380,
+        "算法": 379,
+        "产品经理": 352,
+        "客户端": 122,
+        "前端": 105,
+        "设计": 93,
+        "硬件": 73
+      },
+      "by_location": {
+        "北京": 1738,
+        "上海": 967,
+        "深圳": 441,
+        "杭州": 380,
+        "成都": 64,
+        "西安": 40,
+        "广州": 30,
+        "重庆": 9,
+        "武汉": 6,
+        "济南": 5
+      }
+    },
+    "xai": {
+      "total": 220,
+      "gtm": 7,
+      "research": 25,
+      "gtm_ratio": 3.2,
+      "research_ratio": 11.4,
+      "senior_pct": 20.9,
+      "manager_pct": 8.2,
+      "by_department": {
+        "Data Center": 57,
+        "Human Data": 31,
+        "STEM": 19,
+        "Product": 16,
+        "Engineering": 15,
+        "Safety": 11,
+        "Model": 11,
+        "Information Security": 9,
+        "Infrastructure": 8,
+        "Legal": 7
+      },
+      "by_location": {
+        "Remote": 55,
+        "Memphis, TN": 50,
+        "Palo Alto, CA": 47,
+        "London, UK": 11,
+        "Memphis, TN, Southaven, MS": 9,
+        "Bastrop, TX": 8,
+        "New York, NY, Palo Alto, CA": 7,
+        "Tokyo, JP": 6,
+        "Palo Alto, CA, Remote": 5,
+        "Southaven, MS": 4
+      }
+    },
+    "mistral": {
+      "total": 170,
+      "gtm": 20,
+      "research": 27,
+      "gtm_ratio": 11.8,
+      "research_ratio": 15.9,
+      "senior_pct": 16.5,
+      "manager_pct": 16.5,
+      "by_department": {
+        "Solutions": 54,
+        "Engineering & Infra": 32,
+        "Research": 22,
+        "HR": 13,
+        "Business": 11,
+        "Product": 11,
+        "Legal": 10,
+        "Marketing": 9,
+        "Finance": 7,
+        "Corporate": 1
+      },
+      "by_location": {
+        "Paris": 114,
+        "Singapore": 12,
+        "Palo Alto": 11,
+        "Munich": 6,
+        "New York, NY": 5,
+        "London": 3,
+        "Casablanca": 3,
+        "Marseille": 2,
+        "Abu Dhabi": 2,
+        "Montreal": 2
+      }
+    },
+    "stability": {
+      "total": 5,
+      "gtm": 1,
+      "research": 3,
+      "gtm_ratio": 20.0,
+      "research_ratio": 60.0,
+      "senior_pct": 40.0,
+      "manager_pct": 20.0,
+      "by_department": {
+        "Technical": 2,
+        "Research": 2,
+        "Revenue": 1
+      },
+      "by_location": {
+        "Remote": 4,
+        "Los Angeles , Remote": 1
+      }
+    },
+    "cohere": {
+      "total": 128,
+      "gtm": 24,
+      "research": 29,
+      "gtm_ratio": 18.8,
+      "research_ratio": 22.7,
+      "senior_pct": 45.3,
+      "manager_pct": 20.3,
+      "by_department": {
+        "Modeling": 33,
+        "Revenue": 17,
+        "Agentic Platform": 15,
+        "Product": 14,
+        "Product Management & Program Management": 8,
+        "Data Quality (Contract)": 7,
+        "Business Operations": 7,
+        "People": 7,
+        "Inference": 5,
+        "Internships": 5
+      },
+      "by_location": {
+        "Toronto": 37,
+        "London": 15,
+        "Canada": 13,
+        "New York": 12,
+        "San Francisco": 11,
+        "United States": 8,
+        "Ottawa": 4,
+        "Singapore": 3,
+        "Korea": 3,
+        "Europe": 3
+      }
+    }
+  },
+  "layoffs": [],
+  "funding": []
+}
