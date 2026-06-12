@@ -1,0 +1,741 @@
+{
+  "date": "2026-06-10",
+  "version": "2.0",
+  "companies": {
+    "openai": {
+      "total": 724,
+      "gtm": 202,
+      "research": 198,
+      "gtm_ratio": 27.9,
+      "research_ratio": 27.3,
+      "senior_pct": 21.7,
+      "manager_pct": 24.2,
+      "by_department": {
+        "Go To Market": 152,
+        "Scaling": 94,
+        "Applied AI": 84,
+        "Research": 51,
+        "Finance": 35,
+        "Model Deployment for Business": 34,
+        "Marketing": 32,
+        "Security": 28,
+        "User Operations": 27,
+        "Data Science": 21
+      },
+      "by_location": {
+        "San Francisco": 508,
+        "Singapore": 36,
+        "London, UK": 31,
+        "New York City": 22,
+        "Tokyo, Japan": 19,
+        "Remote - US": 19,
+        "Washington, DC": 17,
+        "Seattle": 13,
+        "Seoul, South Korea": 12,
+        "Sydney, Australia": 10
+      }
+    },
+    "anthropic": {
+      "total": 374,
+      "gtm": 110,
+      "research": 96,
+      "gtm_ratio": 29.4,
+      "research_ratio": 25.7,
+      "senior_pct": 28.1,
+      "manager_pct": 23.5,
+      "by_department": {
+        "Sales": 78,
+        "AI Research & Engineering": 66,
+        "Finance": 29,
+        "Engineering & Design - Product": 25,
+        "Software Engineering - Infrastructure": 24,
+        "Applied AI": 23,
+        "Legal": 17,
+        "Marketing & Brand": 16,
+        "Safeguards (Trust & Safety) ": 15,
+        "Security": 15
+      },
+      "by_location": {
+        "San Francisco, CA": 185,
+        "London, UK": 28,
+        "New York City, NY, San Francisco, CA": 22,
+        "New York City, NY, San Francisco, CA, Seattle, WA": 16,
+        "Remote-Friendly US (Travel Required)": 16,
+        "Washington, D.C.": 14,
+        "Dublin, IE": 13,
+        "Tokyo, Japan": 13,
+        "Sydney, Australia": 12,
+        "New York City, NY": 11
+      }
+    },
+    "deepmind": {
+      "total": 39,
+      "gtm": 0,
+      "research": 18,
+      "gtm_ratio": 0.0,
+      "research_ratio": 46.2,
+      "senior_pct": 33.3,
+      "manager_pct": 35.9,
+      "by_department": {
+        "GenAI": 14,
+        "GeminiApp": 7,
+        "Central Operations, Responsibility, and Engagement": 7,
+        "Frontier AI ": 7,
+        "Science": 2,
+        "Office of the CEO": 1,
+        "Inception ": 1
+      },
+      "by_location": {
+        "Mountain View, California, US": 16,
+        "London, UK": 8,
+        "Mountain View, California, US, New York City, New York, US": 3,
+        "Singapore ": 2,
+        "San Francisco, California, US": 1,
+        "Los Angeles, California, US, Mountain View, California, US": 1,
+        "Seattle, Washington, US": 1,
+        "Bangalore, India ": 1,
+        "New York City, New York, US": 1,
+        "Zurich, Switzerland": 1
+      }
+    },
+    "bytedance": {
+      "total": 3835,
+      "gtm": 192,
+      "research": 1624,
+      "gtm_ratio": 5.0,
+      "research_ratio": 42.3,
+      "senior_pct": 27.2,
+      "manager_pct": 17.9,
+      "by_department": {
+        "后端": 567,
+        "运营": 480,
+        "研发": 456,
+        "产品": 399,
+        "算法": 390,
+        "产品经理": 347,
+        "客户端": 131,
+        "前端": 99,
+        "设计": 95,
+        "硬件": 84
+      },
+      "by_location": {
+        "北京": 1804,
+        "上海": 1000,
+        "深圳": 462,
+        "杭州": 397,
+        "成都": 61,
+        "西安": 45,
+        "广州": 36,
+        "济南": 8,
+        "重庆": 7,
+        "武汉": 5
+      }
+    },
+    "xai": {
+      "total": 220,
+      "gtm": 7,
+      "research": 25,
+      "gtm_ratio": 3.2,
+      "research_ratio": 11.4,
+      "senior_pct": 20.5,
+      "manager_pct": 8.2,
+      "by_department": {
+        "Data Center": 57,
+        "Human Data": 31,
+        "STEM": 19,
+        "Product": 16,
+        "Engineering": 15,
+        "Safety": 11,
+        "Model": 11,
+        "Information Security": 9,
+        "Infrastructure": 8,
+        "Legal": 7
+      },
+      "by_location": {
+        "Remote": 55,
+        "Memphis, TN": 50,
+        "Palo Alto, CA": 47,
+        "London, UK": 11,
+        "Memphis, TN, Southaven, MS": 9,
+        "Bastrop, TX": 8,
+        "New York, NY, Palo Alto, CA": 7,
+        "Tokyo, JP": 6,
+        "Palo Alto, CA, Remote": 5,
+        "Southaven, MS": 4
+      }
+    },
+    "mistral": {
+      "total": 168,
+      "gtm": 20,
+      "research": 27,
+      "gtm_ratio": 11.9,
+      "research_ratio": 16.1,
+      "senior_pct": 16.7,
+      "manager_pct": 16.1,
+      "by_department": {
+        "Solutions": 54,
+        "Engineering & Infra": 32,
+        "Research": 22,
+        "HR": 13,
+        "Product": 11,
+        "Business": 10,
+        "Marketing": 9,
+        "Legal": 9,
+        "Finance": 7,
+        "Corporate": 1
+      },
+      "by_location": {
+        "Paris": 114,
+        "Singapore": 12,
+        "Palo Alto": 10,
+        "Munich": 6,
+        "New York, NY": 5,
+        "London": 3,
+        "Marseille": 2,
+        "Abu Dhabi": 2,
+        "Casablanca": 2,
+        "Montreal": 2
+      }
+    },
+    "stability": {
+      "total": 5,
+      "gtm": 1,
+      "research": 3,
+      "gtm_ratio": 20.0,
+      "research_ratio": 60.0,
+      "senior_pct": 40.0,
+      "manager_pct": 20.0,
+      "by_department": {
+        "Technical": 2,
+        "Research": 2,
+        "Revenue": 1
+      },
+      "by_location": {
+        "Remote": 4,
+        "Los Angeles , Remote": 1
+      }
+    },
+    "cohere": {
+      "total": 0,
+      "error": "HTTPSConnectionPool(host='jobs.ashbyhq.com', port=443): Read timed out. (read timeout=30)"
+    }
+  },
+  "github": {
+    "openai": {
+      "org": "openai",
+      "public_repos": 10,
+      "total_stars": 24961,
+      "top_repos": [
+        {
+          "name": "role-specific-plugins",
+          "stars": 252,
+          "updated": "2026-06-10",
+          "language": "Python"
+        },
+        {
+          "name": "imagegencam",
+          "stars": 343,
+          "updated": "2026-06-10",
+          "language": "Python"
+        },
+        {
+          "name": "openai-cli",
+          "stars": 627,
+          "updated": "2026-06-10",
+          "language": "Go"
+        },
+        {
+          "name": "openai-realtime-meeting-assistant",
+          "stars": 236,
+          "updated": "2026-06-10",
+          "language": "Go"
+        },
+        {
+          "name": "monitorability-evals",
+          "stars": 77,
+          "updated": "2026-05-30",
+          "language": "Python"
+        }
+      ],
+      "recent_commits_4w": 0
+    },
+    "anthropic": {
+      "org": "anthropics",
+      "public_repos": 10,
+      "total_stars": 7205,
+      "top_repos": [
+        {
+          "name": "riegeli-rs",
+          "stars": 3,
+          "updated": "2026-06-09",
+          "language": null
+        },
+        {
+          "name": "defending-code-reference-harness",
+          "stars": 5604,
+          "updated": "2026-06-10",
+          "language": "Python"
+        },
+        {
+          "name": "ClaudeForFoundationModels",
+          "stars": 17,
+          "updated": "2026-06-10",
+          "language": "Swift"
+        },
+        {
+          "name": "cargo-nix-plugin",
+          "stars": 28,
+          "updated": "2026-06-10",
+          "language": "Rust"
+        },
+        {
+          "name": "scone-bench",
+          "stars": 21,
+          "updated": "2026-06-08",
+          "language": "Python"
+        }
+      ],
+      "recent_commits_4w": 0
+    },
+    "deepmind": {
+      "org": "google-deepmind",
+      "public_repos": 10,
+      "total_stars": 2072,
+      "top_repos": [
+        {
+          "name": "unpic",
+          "stars": 1,
+          "updated": "2026-06-08",
+          "language": "Python"
+        },
+        {
+          "name": "seeing_without_pixels",
+          "stars": 5,
+          "updated": "2026-06-09",
+          "language": "Python"
+        },
+        {
+          "name": "nested",
+          "stars": 1,
+          "updated": "2026-06-08",
+          "language": "Python"
+        },
+        {
+          "name": "science-skills",
+          "stars": 1784,
+          "updated": "2026-06-10",
+          "language": "Python"
+        },
+        {
+          "name": "alphaproof-nexus-results",
+          "stars": 233,
+          "updated": "2026-06-10",
+          "language": "Lean"
+        }
+      ],
+      "recent_commits_4w": 0
+    },
+    "bytedance": {
+      "org": null,
+      "public_repos": 0,
+      "total_stars": 0,
+      "top_repos": [],
+      "recent_commits_4w": 0
+    },
+    "xai": {
+      "org": "xai-org",
+      "public_repos": 7,
+      "total_stars": 83003,
+      "top_repos": [
+        {
+          "name": "plugin-marketplace",
+          "stars": 4,
+          "updated": "2026-06-10",
+          "language": "Python"
+        },
+        {
+          "name": "x-algorithm",
+          "stars": 26120,
+          "updated": "2026-06-10",
+          "language": "Rust"
+        },
+        {
+          "name": "xai-proto",
+          "stars": 123,
+          "updated": "2026-06-08",
+          "language": null
+        },
+        {
+          "name": "xai-sdk-python",
+          "stars": 475,
+          "updated": "2026-06-10",
+          "language": "Python"
+        },
+        {
+          "name": "grok-prompts",
+          "stars": 4154,
+          "updated": "2026-06-10",
+          "language": "Jinja"
+        }
+      ],
+      "recent_commits_4w": 0
+    },
+    "mistral": {
+      "org": "mistralai",
+      "public_repos": 10,
+      "total_stars": 4483,
+      "top_repos": [
+        {
+          "name": "search-starter-app",
+          "stars": 5,
+          "updated": "2026-06-05",
+          "language": "Jinja"
+        },
+        {
+          "name": "demo-medical-doc-processor-workflow",
+          "stars": 4,
+          "updated": "2026-06-07",
+          "language": "MDX"
+        },
+        {
+          "name": "workflows-starter-app",
+          "stars": 31,
+          "updated": "2026-05-29",
+          "language": "MDX"
+        },
+        {
+          "name": "zed-extensions",
+          "stars": 3,
+          "updated": "2026-05-20",
+          "language": "JavaScript"
+        },
+        {
+          "name": "mistral-vibe",
+          "stars": 4431,
+          "updated": "2026-06-10",
+          "language": "Python"
+        }
+      ],
+      "recent_commits_4w": 0
+    },
+    "stability": {
+      "org": "stability-ai",
+      "public_repos": 10,
+      "total_stars": 562,
+      "top_repos": [
+        {
+          "name": "rcm_old",
+          "stars": 0,
+          "updated": "2026-06-09",
+          "language": null
+        },
+        {
+          "name": "Awesome-Stable-Audio",
+          "stars": 17,
+          "updated": "2026-06-10",
+          "language": null
+        },
+        {
+          "name": "Qwen-Image-Bench",
+          "stars": 1,
+          "updated": "2026-06-07",
+          "language": "Python"
+        },
+        {
+          "name": "splat-the-net",
+          "stars": 1,
+          "updated": "2026-05-10",
+          "language": null
+        },
+        {
+          "name": "stable-audio-3",
+          "stars": 468,
+          "updated": "2026-06-09",
+          "language": "Python"
+        }
+      ],
+      "recent_commits_4w": 0
+    },
+    "cohere": {
+      "org": "cohere-ai",
+      "public_repos": 10,
+      "total_stars": 9,
+      "top_repos": [
+        {
+          "name": "cohere-azure-workshops",
+          "stars": 1,
+          "updated": "2026-06-09",
+          "language": "Jupyter Notebook"
+        },
+        {
+          "name": "cvm-measure",
+          "stars": 1,
+          "updated": "2026-05-23",
+          "language": "Makefile"
+        },
+        {
+          "name": "guest-components",
+          "stars": 1,
+          "updated": "2026-05-27",
+          "language": "Rust"
+        },
+        {
+          "name": "TNG",
+          "stars": 2,
+          "updated": "2026-06-02",
+          "language": "Rust"
+        },
+        {
+          "name": "cloud-api-adaptor",
+          "stars": 0,
+          "updated": "2026-06-05",
+          "language": "Go"
+        }
+      ],
+      "recent_commits_4w": 0
+    }
+  },
+  "arxiv": {
+    "openai": {
+      "total_recent": 1258,
+      "papers": [
+        {
+          "title": "Three Years of r/ChatGPT: Societal Impact Evaluations from Social Media Data",
+          "date": "2026-06-04"
+        },
+        {
+          "title": "Disentangling Answer Engine Optimization from Platform Growth: A Log-Based Natural Experiment on ChatGPT Referral Traffic",
+          "date": "2026-06-03"
+        },
+        {
+          "title": "Institutional Trust and the Domestic AI Advantage: Evidence from DeepSeek and ChatGPT Users in China",
+          "date": "2026-05-31"
+        },
+        {
+          "title": "Confused ChatGPT: Cross-App Context Poisoning via First-Party APIs",
+          "date": "2026-05-30"
+        },
+        {
+          "title": "Protocol for evaluating ChatGPT in biomedical association generation and verification using a RAG-enabled, cross-model majority voting workflow",
+          "date": "2026-05-28"
+        }
+      ]
+    },
+    "anthropic": {
+      "total_recent": 82,
+      "papers": [
+        {
+          "title": "Claude Code-Driving Scenario Mining for the Argoverse 2 Challenge",
+          "date": "2026-06-08"
+        },
+        {
+          "title": "Glass Box at Orbit: A Constitutional AI Verification Framework for Trustworthy Autonomous CubeSat Intelligence",
+          "date": "2026-06-02"
+        },
+        {
+          "title": "Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet",
+          "date": "2026-05-28"
+        },
+        {
+          "title": "Coding Beyond Your Training: Claude Code and the Technological Frontier of Software Developers",
+          "date": "2026-05-25"
+        },
+        {
+          "title": "Is Decentralized AI Governable? From Regulative Policy to Constitutive Protocol",
+          "date": "2026-05-23"
+        }
+      ]
+    },
+    "deepmind": {
+      "total_recent": 57,
+      "papers": [
+        {
+          "title": "AF_Cache: Efficient Pipeline for Running AlphaFold for High-Throughput Protein-Protein Interaction Prediction",
+          "date": "2026-06-03"
+        },
+        {
+          "title": "Gemini Embedding 2: A Native Multimodal Embedding Model from Gemini",
+          "date": "2026-05-26"
+        },
+        {
+          "title": "The Granularity Gap: A Multi-Dimensional Longitudinal Audit of Sycophancy in Gemini Models",
+          "date": "2026-04-19"
+        },
+        {
+          "title": "Do Thought Streams Matter? Evaluating Reasoning in Gemini Vision-Language Models for Video Scene Understanding",
+          "date": "2026-04-13"
+        },
+        {
+          "title": "SCHEMA for Gemini 3 Pro Image: A Structured Methodology for Controlled AI Image Generation on Google's Native Multimodal Model",
+          "date": "2026-02-21"
+        }
+      ]
+    },
+    "bytedance": {
+      "total_recent": 17,
+      "papers": [
+        {
+          "title": "Seed1.8 Model Card: Towards Generalized Real-World Agency",
+          "date": "2026-03-21"
+        },
+        {
+          "title": "Virtual Width Networks",
+          "date": "2025-11-14"
+        },
+        {
+          "title": "VeriPy -- A New Python-Based Approach for SDR Pipelined/Unrolled Hardware Accelerator Generation",
+          "date": "2025-10-09"
+        },
+        {
+          "title": "Seed-Coder: Let the Code Model Curate Data for Itself",
+          "date": "2025-06-04"
+        },
+        {
+          "title": "Seed1.5-Thinking: Advancing Superb Reasoning Models with Reinforcement Learning",
+          "date": "2025-04-10"
+        }
+      ]
+    },
+    "xai": {
+      "total_recent": 19,
+      "papers": [
+        {
+          "title": "A Pre-Training Analogue of Grokking in Language Models: Tracing Delayed Grammatical Generalization",
+          "date": "2026-05-29"
+        },
+        {
+          "title": "Social Policy of Large Language Models: How GPT, Claude, DeepSeek and Grok Allocate Social Budgets in Spain and Germany",
+          "date": "2026-05-11"
+        },
+        {
+          "title": "Model Capacity Determines Grokking through Competing Memorisation and Generalisation Speeds",
+          "date": "2026-05-10"
+        },
+        {
+          "title": "Grokking of Diffusion Models: Case Study on Modular Addition",
+          "date": "2026-04-20"
+        },
+        {
+          "title": "Grok in the Wild: Characterizing the Roles and Uses of Large Language Models on Social Media",
+          "date": "2026-02-11"
+        }
+      ]
+    },
+    "mistral": {
+      "total_recent": 8,
+      "papers": [
+        {
+          "title": "Enhancing Next-Generation Language Models with Knowledge Graphs: Extending Claude, Mistral IA, and GPT-4 via KG-BERT",
+          "date": "2025-12-11"
+        },
+        {
+          "title": "Multilevel Analysis of Cryptocurrency News using RAG Approach with Fine-Tuned Mistral Large Language Model",
+          "date": "2025-08-25"
+        },
+        {
+          "title": "A Comparative Benchmark of a Moroccan Darija Toxicity Detection Model (Typica.ai) and Major LLM-Based Moderation APIs (OpenAI, Mistral, Anthropic)",
+          "date": "2025-05-05"
+        },
+        {
+          "title": "MISTRAL: a model for AGN winds from radiatively efficient accretion in cosmological simulations",
+          "date": "2025-04-10"
+        },
+        {
+          "title": "Vision-Language and Large Language Model Performance in Gastroenterology: GPT, Claude, Llama, Phi, Mistral, Gemma, and Quantized Models",
+          "date": "2024-08-25"
+        }
+      ]
+    },
+    "stability": {
+      "total_recent": 329,
+      "papers": [
+        {
+          "title": "An efficient and stable diffusion generated method for quadrilateral mesh generation in general domains",
+          "date": "2026-05-27"
+        },
+        {
+          "title": "LIFT and PLACE: A Simple, Stable, and Effective Knowledge Distillation Framework for Lightweight Diffusion Models",
+          "date": "2026-05-19"
+        },
+        {
+          "title": "Stable and Near-Reversible Diffusion ODE Solvers for Image Editing",
+          "date": "2026-05-12"
+        },
+        {
+          "title": "Supersampling Stable Diffusion and Beyond: A Seamless, Training-Free Approach for Scaling Neural Networks Using Common Interpolation Methods",
+          "date": "2026-05-09"
+        },
+        {
+          "title": "Fast, Stable, and Physical: Hyperbolic, Magnetic Field-Aligned Diffusion in SPH",
+          "date": "2026-04-23"
+        }
+      ]
+    },
+    "cohere": {
+      "total_recent": 1,
+      "papers": [
+        {
+          "title": "Command A: An Enterprise-Ready Large Language Model",
+          "date": "2025-04-01"
+        }
+      ]
+    }
+  },
+  "consistency": {
+    "openai": {
+      "narrative": "Sam Altman: \"算力是未来最珍贵的商品，AGI十年内到来\"",
+      "checks": [
+        {
+          "check": "GTM是否是最大部门？",
+          "passed": true,
+          "message": "是 → 商业化确实是第一优先级"
+        },
+        {
+          "check": "研发占比是否 >30%？",
+          "passed": false,
+          "message": "否 → 研发占比低于叙事预期"
+        }
+      ]
+    },
+    "anthropic": {
+      "narrative": "Dario Amodei: \"安全是我们的核心，Scaling Laws仍在生效\"",
+      "checks": [
+        {
+          "check": "Safety相关岗位是否 >10%？",
+          "passed": true,
+          "message": "需要部门数据验证"
+        },
+        {
+          "check": "研发占比是否 >25%？",
+          "passed": true,
+          "message": "是 → Scaling投入匹配叙事"
+        }
+      ]
+    },
+    "deepmind": {
+      "narrative": "Demis Hassabis: \"纯研究导向，商业化由Google Cloud负责\"",
+      "checks": [
+        {
+          "check": "GTM占比是否 ≈0%？",
+          "passed": true,
+          "message": "是 → 确实是纯研究院"
+        },
+        {
+          "check": "研发占比是否 >40%？",
+          "passed": true,
+          "message": "是 → 研究优先一致"
+        }
+      ]
+    },
+    "stability": {
+      "narrative": "曾宣称\"开源生成式AI的领导者\"",
+      "checks": [
+        {
+          "check": "总岗位是否 >50？",
+          "passed": false,
+          "message": "否 → 严重萎缩（泡沫破裂典型案例）"
+        }
+      ]
+    }
+  }
+}
