@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>硅谷 AI 大牛访谈知识图谱</title>
+<style>
+:root {
+  --bg: #0f1117; --card: #1a1d27; --border: #2a2d3a; --text: #e4e4e7;
+  --muted: #9ca3af; --accent: #6366f1; --green: #22c55e; --yellow: #eab308;
+  --red: #ef4444; --orange: #f97316; --blue: #3b82f6; --purple: #a855f7;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, 'SF Pro', 'PingFang SC', sans-serif; line-height: 1.7; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+h1 { font-size: 2.2em; text-align: center; margin: 40px 0 10px; background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.subtitle { text-align: center; color: var(--muted); margin-bottom: 40px; font-size: 0.95em; }
+h2 { font-size: 1.5em; margin: 40px 0 20px; padding-left: 12px; border-left: 4px solid var(--accent); }
+h3 { font-size: 1.15em; margin: 25px 0 12px; color: var(--accent); }
+
+/* Nav tabs */
+.nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 30px; justify-content: center; }
+.nav-btn { padding: 8px 18px; border: 1px solid var(--border); border-radius: 20px; background: transparent; color: var(--muted); cursor: pointer; font-size: 0.9em; transition: all 0.2s; }
+.nav-btn:hover, .nav-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* Section */
+.section { display: none; }
+.section.active { display: block; }
+
+/* Person cards */
+.person-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 16px; }
+.person-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; transition: transform 0.2s, border-color 0.2s; }
+.person-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+.person-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.avatar { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3em; font-weight: 700; color: #fff; }
+.person-name { font-size: 1.1em; font-weight: 600; }
+.person-role { font-size: 0.82em; color: var(--muted); }
+.thesis { font-size: 0.92em; line-height: 1.65; margin-bottom: 12px; }
+.quote-box { background: #1e2130; border-left: 3px solid var(--purple); padding: 10px 14px; border-radius: 0 8px 8px 0; margin: 10px 0; font-style: italic; font-size: 0.88em; color: #c4b5fd; }
+.tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.75em; margin: 2px; background: #2a2d3a; color: var(--muted); }
+.tag.green { background: #14532d; color: #86efac; }
+.tag.red { background: #450a0a; color: #fca5a5; }
+.tag.blue { background: #172554; color: #93c5fd; }
+.tag.yellow { background: #422006; color: #fde68a; }
+.tag.purple { background: #3b0764; color: #d8b4fe; }
+
+/* Comparison table */
+.cmp-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88em; }
+.cmp-table th { background: #1e2130; padding: 10px 12px; text-align: left; border-bottom: 2px solid var(--accent); position: sticky; top: 0; }
+.cmp-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.cmp-table tr:hover td { background: #1e2130; }
+
+/* Topic cards */
+.topic-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+.topic-title { font-size: 1.1em; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.viewpoint { margin: 8px 0; padding: 8px 12px; border-radius: 8px; background: #13151d; font-size: 0.9em; }
+.viewpoint .name { font-weight: 600; color: var(--accent); }
+.vs-bar { display: flex; height: 24px; border-radius: 12px; overflow: hidden; margin: 8px 0; }
+.vs-bar div { display: flex; align-items: center; justify-content: center; font-size: 0.72em; font-weight: 600; color: #fff; }
+
+/* Timeline */
+.timeline { position: relative; padding-left: 30px; }
+.timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+.tl-item { position: relative; margin-bottom: 20px; }
+.tl-item::before { content: ''; position: absolute; left: -24px; top: 6px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg); }
+.tl-label { font-size: 0.8em; color: var(--muted); }
+.tl-content { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-top: 4px; font-size: 0.9em; }
+
+/* Bubble meter */
+.meter { height: 20px; border-radius: 10px; background: #1e2130; margin: 6px 0; position: relative; overflow: hidden; }
+.meter-fill { height: 100%; border-radius: 10px; transition: width 0.6s; }
+.meter-label { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 0.72em; font-weight: 600; }
+
+@media (max-width: 768px) {
+  .person-grid { grid-template-columns: 1fr; }
+  h1 { font-size: 1.6em; }
+  .cmp-table { font-size: 0.78em; }
+  .container { padding: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>硅谷 AI 大牛访谈知识图谱</h1>
+<p class="subtitle">9 位顶尖 AI 领袖 &times; 130 万字逐字稿 &rarr; 结构化知识萃取<br>数据来源：Lex Fridman Podcast | 更新日期：2026-06-10</p>
+
+<div class="nav">
+  <button class="nav-btn active" onclick="showSection('overview')">总览</button>
+  <button class="nav-btn" onclick="showSection('agi')">AGI 时间线</button>
+  <button class="nav-btn" onclick="showSection('safety')">AI 安全</button>
+  <button class="nav-btn" onclick="showSection('business')">商业化</button>
+  <button class="nav-btn" onclick="showSection('debates')">核心分歧</button>
+  <button class="nav-btn" onclick="showSection('predictions')">预测</button>
+  <button class="nav-btn" onclick="showSection('people')">人物卡片</button>
+</div>
+
+<!-- ==================== 总览 ==================== -->
+<div class="section active" id="overview">
+<h2>一张表看懂 9 位 AI 领袖的核心立场</h2>
+<div style="overflow-x:auto;">
+<table class="cmp-table">
+<tr>
+  <th>人物</th><th>公司</th><th>核心主张</th><th>AGI 时间线</th><th>安全立场</th><th>商业模式</th>
+</tr>
+<tr>
+  <td><strong>Dario Amodei</strong></td><td>Anthropic CEO</td>
+  <td>Scaling Laws 是现代 AI 的核心洞察，我们正在迅速耗尽 "这件事不会发生" 的理由</td>
+  <td>2026-2027</td>
+  <td>RSP 安全等级体系 (ASL-1~5)，机械可解释性是关键</td>
+  <td>API 优先，科学发现加速（特别是生物/医疗）</td>
+</tr>
+<tr>
+  <td><strong>Sam Altman</strong></td><td>OpenAI CEO</td>
+  <td>算力将成为未来最珍贵的商品，AGI 之路必然是一场巨大的权力争夺</td>
+  <td>十年内或更早</td>
+  <td>模型行为规范应公开辩论，组织韧性与技术同样重要</td>
+  <td>订阅制优先，厌恶广告模式</td>
+</tr>
+<tr>
+  <td><strong>Demis Hassabis</strong></td><td>DeepMind CEO</td>
+  <td>自然界的任何模式都可以被经典学习算法高效发现和建模</td>
+  <td>50% 概率在 5 年内（~2030）</td>
+  <td>底层风险很高，但人类有自我调节的能力</td>
+  <td>通过 Google Cloud 分发，关注 AI 科学创造力</td>
+</tr>
+<tr>
+  <td><strong>Jensen Huang</strong></td><td>NVIDIA CEO</td>
+  <td>AI 需要全栈极致协同设计，NVIDIA 的护城河是 CUDA 生态 + 20 年安装基数</td>
+  <td><strong>已经实现</strong>（实用层面）</td>
+  <td>不是核心关注，聚焦工程可靠性</td>
+  <td>卖算力基础设施（"AI 时代的军火商"）</td>
+</tr>
+<tr>
+  <td><strong>Elon Musk</strong></td><td>xAI CEO</td>
+  <td>AI 应该最大化追求真理，锚定物理学第一性原理，并有幽默感</td>
+  <td>未明确表态</td>
+  <td>呼吁第三方监管机构，十年来一直在预警</td>
+  <td>Grok = 银河系漫游指南，追求真理而非政治正确</td>
+</tr>
+<tr>
+  <td><strong>Sundar Pichai</strong></td><td>Google & Alphabet CEO</td>
+  <td>AI 是人类有史以来最深刻的技术 — 比火和电更深刻</td>
+  <td>到 2030 年会有巨大进展</td>
+  <td>底层风险很高，但相信人类能挺身应对</td>
+  <td>Gemini 嵌入所有 Google 产品，Search AI 模式</td>
+</tr>
+<tr>
+  <td><strong>Mark Zuckerberg</strong></td><td>Meta CEO</td>
+  <td>未来是物理与数字现实的无缝融合，开源 AI 是关键基础设施</td>
+  <td>未明确表态</td>
+  <td>开源 > 闭源（从安全角度），社会需要在实践中学习</td>
+  <td>开源 Llama + AI 角色 + 元宇宙</td>
+</tr>
+<tr>
+  <td><strong>Yann LeCun</strong></td><td>Meta 首席AI科学家</td>
+  <td>自回归 LLM 根本不足以实现人类级智能，需要 JEPA 新架构</td>
+  <td><strong>至少 10 年以上</strong></td>
+  <td>权力集中 >> 存在性风险，开源是解药</td>
+  <td>开源是 Meta 的战略优势</td>
+</tr>
+<tr>
+  <td><strong>Peter Steinberger</strong></td><td>OpenClaw 创始人</td>
+  <td>个人 AI Agent 时代已到来 — 从语言到行动的范式转移</td>
+  <td>未讨论</td>
+  <td>系统级访问是安全雷区，但可通过工程解决</td>
+  <td>开源，目前每月亏损 $10-20K</td>
+</tr>
+</table>
+</div>
+</div>
+
+<!-- ==================== AGI 时间线 ==================== -->
+<div class="section" id="agi">
+<h2>AGI 时间线：谁说了什么</h2>
+<p style="color:var(--muted);margin-bottom:20px;">从 "已经实现" 到 "至少十年"，9 位领袖的 AGI 预测光谱</p>
+
+<div style="margin:20px 0;">
+  <div style="display:flex;justify-content:space-between;font-size:0.8em;color:var(--muted);margin-bottom:4px;">
+    <span>已实现</span><span>2027</span><span>2030</span><span>10年+</span>
+  </div>
+  <div style="position:relative;height:60px;background:#1e2130;border-radius:8px;">
+    <div style="position:absolute;left:5%;top:8px;background:var(--green);padding:2px 8px;border-radius:4px;font-size:0.75em;">Jensen Huang</div>
+    <div style="position:absolute;left:18%;top:34px;background:var(--orange);padding:2px 8px;border-radius:4px;font-size:0.75em;">Dario Amodei</div>
+    <div style="position:absolute;left:30%;top:8px;background:var(--yellow);padding:2px 8px;border-radius:4px;font-size:0.75em;">Sam Altman</div>
+    <div style="position:absolute;left:48%;top:34px;background:var(--blue);padding:2px 8px;border-radius:4px;font-size:0.75em;">Demis Hassabis</div>
+    <div style="position:absolute;left:48%;top:8px;background:var(--blue);padding:2px 8px;border-radius:4px;font-size:0.75em;">Sundar Pichai</div>
+    <div style="position:absolute;left:85%;top:8px;background:var(--red);padding:2px 8px;border-radius:4px;font-size:0.75em;">Yann LeCun</div>
+  </div>
+</div>
+
+<div class="topic-card">
+  <div class="topic-title">&#9200; 最激进：Jensen Huang — "我认为我们已经实现了 AGI"</div>
+  <div class="viewpoint">
+    <span class="name">Jensen Huang</span>: 从实用角度看，一个 AI 系统完全可以创建一个 web 服务、获得病毒式传播、产生十亿美元收入。这在实际意义上就是 AGI。但 10 万个 Agent 建造一个 NVIDIA？概率为零。
+  </div>
+</div>
+
+<div class="topic-card">
+  <div class="topic-title">&#9200; 最具体：Dario Amodei — "2026-2027，令人信服的阻碍正在迅速减少"</div>
+  <div class="viewpoint">
+    <span class="name">Dario Amodei</span>: 如果你外推当前的能力曲线，AGI 将在 2026-2027 年到来。仍然存在不会发生的世界，但这些世界的数量正在迅速减少。他更偏好用 "强大的 AI" 而非 "AGI" — 认为 AGI 是一个无意义的流行语，没有离散的阈值，只有平滑的指数增长。
+  </div>
+</div>
+
+<div class="topic-card">
+  <div class="topic-title">&#9200; 最谨慎：Yann LeCun — "至少十年，可能更长"</div>
+  <div class="viewpoint">
+    <span class="name">Yann LeCun</span>: 我 15 年来一直在反驳 "AGI 即将到来" 的预测，而且我一直是对的。还有太多缺失的能力（层级规划、世界模型、持久记忆），每一个都需要根本性突破，而且这些突破还必须协同工作。
+  </div>
+</div>
+</div>
+
+<!-- ==================== AI 安全 ==================== -->
+<div class="section" id="safety">
+<h2>AI 安全：三大流派</h2>
+
+<div class="topic-card">
+  <div class="topic-title" style="color:var(--red);">&#128721; 流派一：技术安全优先 (Anthropic/DeepMind)</div>
+  <div class="viewpoint">
+    <span class="name">Dario Amodei</span>: 开发了负责任扩展政策 (RSP)，设定 AI 安全等级 ASL-1 到 ASL-5。当前模型处于 ASL-2。ASL-3（非国家行为体风险增强）可能很快就会到来。ASL-4 引入模型欺骗检测风险，需要基于可解释性的验证。
+  </div>
+  <div class="viewpoint">
+    <span class="name">Demis Hassabis</span>: 底层风险确实很高，但存在自我调节动态：如果 p(doom) 真的很高，全人类都会团结起来应对。主张通过全民基本保障 (UBP) 来分配 AI 驱动的生产力收益。
+  </div>
+</div>
+
+<div class="topic-card">
+  <div class="topic-title" style="color:var(--green);">&#128275; 流派二：开源即安全 (Meta/LeCun)</div>
+  <div class="viewpoint">
+    <span class="name">Yann LeCun</span>: 通过专有 AI 系统导致权力集中的危险远大于其他一切。开源 AI 是对抗权力集中的解药。每一个 AI 攻击都会被同样聪明的 AI 防御所对抗。
+  </div>
+  <div class="viewpoint">
+    <span class="name">Mark Zuckerberg</span>: 开源基础模型（如 Llama）的价值远远超过其风险。社会需要通过大规模实验 AI 系统来学习，而不是空谈风险。
+  </div>
+</div>
+
+<div class="topic-card">
+  <div class="topic-title" style="color:var(--yellow);">&#9878; 流派三：监管+治理 (Musk/Altman)</div>
+  <div class="viewpoint">
+    <span class="name">Elon Musk</span>: 十多年来一直推动 AI 监管。主张建立客观的第三方裁判机构，可以审查领先 AI 公司的工作并公开表达担忧。每个其他高风险行业都有广泛的监管，但 AI 几乎没有。
+  </div>
+  <div class="viewpoint">
+    <span class="name">Sam Altman</span>: 模型行为规范应该公开辩论和讨论。董事会风波可能是 AI 安全历史上最糟糕的事件之一，但希望它建立了组织韧性。
+  </div>
+</div>
+
+<h3>安全投入力度对比</h3>
+<div style="max-width:500px;">
+  <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+    <span style="width:100px;font-size:0.85em;">Anthropic</span>
+    <div class="meter" style="flex:1;"><div class="meter-fill" style="width:90%;background:var(--red);"></div><span class="meter-label">ASL 体系</span></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+    <span style="width:100px;font-size:0.85em;">DeepMind</span>
+    <div class="meter" style="flex:1;"><div class="meter-fill" style="width:75%;background:var(--orange);"></div><span class="meter-label">Frontier AI</span></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+    <span style="width:100px;font-size:0.85em;">OpenAI</span>
+    <div class="meter" style="flex:1;"><div class="meter-fill" style="width:40%;background:var(--yellow);"></div><span class="meter-label">Safety Systems</span></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+    <span style="width:100px;font-size:0.85em;">Meta</span>
+    <div class="meter" style="flex:1;"><div class="meter-fill" style="width:30%;background:var(--blue);"></div><span class="meter-label">开源即安全</span></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+    <span style="width:100px;font-size:0.85em;">xAI</span>
+    <div class="meter" style="flex:1;"><div class="meter-fill" style="width:20%;background:var(--muted);"></div><span class="meter-label">呼吁监管</span></div>
+  </div>
+</div>
+</div>
+
+<!-- ==================== 商业化 ==================== -->
+<div class="section" id="business">
+<h2>AI 商业化：各家怎么赚钱</h2>
+
+<div class="person-grid">
+  <div class="topic-card">
+    <div class="topic-title">&#128176; OpenAI — 订阅制优先</div>
+    <p class="thesis">Sam Altman: "我讨厌广告。AI 驱动的广告可能会为了广告商的利益而扭曲真相。订阅模式确保用户知道自己不是产品。" OpenAI 走的是 ChatGPT 订阅 + API 调用的双轨模式。</p>
+    <span class="tag green">订阅制</span><span class="tag blue">API</span><span class="tag">反广告</span>
+  </div>
+  <div class="topic-card">
+    <div class="topic-title">&#128300; Anthropic — 科学加速</div>
+    <p class="thesis">Dario Amodei: 真正的经济价值将来自加速科学发现，特别是生物和医学领域。设想同时部署数百万个 AI 实例，每个都比人类更快，作为虚拟研究人员工作。</p>
+    <span class="tag green">API 优先</span><span class="tag purple">科学发现</span><span class="tag blue">企业级</span>
+  </div>
+  <div class="topic-card">
+    <div class="topic-title">&#127758; Google — 嵌入一切</div>
+    <p class="thesis">Sundar Pichai: Gemini token 服务量 12 个月增长 50 倍（97亿→4800亿/月）。AI 模式嵌入 Google Search 是下一章 — AI 作为增强而非替代网页探索的上下文层。</p>
+    <span class="tag blue">全产品嵌入</span><span class="tag green">Search AI</span><span class="tag">50x 增长</span>
+  </div>
+  <div class="topic-card">
+    <div class="topic-title">&#128187; NVIDIA — 卖铲子</div>
+    <p class="thesis">Jensen Huang: 安装基数定义了一个架构 — 其他一切都是次要的。NVIDIA 在 GeForce 上押注 CUDA，即使这压垮了毛利率（市值从 $8B 跌到 $1.5B）。十年后这个赌注终于回报。</p>
+    <span class="tag yellow">算力基础设施</span><span class="tag">CUDA 生态</span><span class="tag">全栈协同</span>
+  </div>
+  <div class="topic-card">
+    <div class="topic-title">&#128640; Meta — 开源护城河</div>
+    <p class="thesis">Zuckerberg: 开源 AI 是 Meta 的战略优势。Llama 2 的下载量远超预期。优先级是将基础模型转化为数亿人使用的消费产品。AI 角色 + AI Studio 是近期商业打法。</p>
+    <span class="tag green">开源</span><span class="tag blue">AI 角色</span><span class="tag">消费者产品</span>
+  </div>
+  <div class="topic-card">
+    <div class="topic-title">&#129302; OpenClaw — 开源困境</div>
+    <p class="thesis">Peter Steinberger: 目前每月亏损 $10-20K 运营 OpenClaw。收到了 OpenAI 和 Meta 的收购要约，条件是保持开源。对 VC 路线持怀疑态度，认为与开源存在利益冲突。</p>
+    <span class="tag red">每月亏损</span><span class="tag green">开源</span><span class="tag yellow">拒绝收购</span>
+  </div>
+</div>
+</div>
+
+<!-- ==================== 核心分歧 ==================== -->
+<div class="section" id="debates">
+<h2>核心分歧：大牛们在吵什么</h2>
+
+<div class="topic-card">
+  <div class="topic-title">&#9876; 辩题一：LLM 够不够？</div>
+  <div class="vs-bar">
+    <div style="width:70%;background:var(--accent);">LLM 足够 (70%)</div>
+    <div style="width:30%;background:var(--red);">需要新架构 (30%)</div>
+  </div>
+  <div class="viewpoint"><span class="name">Altman + Amodei + Hassabis</span>: Scaling Laws 仍在生效。更多数据 + 更大模型 + 更多算力 = 更强能力。没有证据表明会撞墙。</div>
+  <div class="viewpoint"><span class="name" style="color:var(--red);">Yann LeCun (反对)</span>: LLM 根本不理解物理世界。没有持久记忆，没有真正的推理，没有层级规划。需要全新的架构 (JEPA) + 感官体验。15 年来 "AGI 要来了" 的预测全部落空。</div>
+</div>
+
+<div class="topic-card">
+  <div class="topic-title">&#128274; 辩题二：开源还是闭源？</div>
+  <div class="vs-bar">
+    <div style="width:55%;background:var(--green);">开源派 (55%)</div>
+    <div style="width:45%;background:var(--orange);">闭源/谨慎派 (45%)</div>
+  </div>
+  <div class="viewpoint"><span class="name" style="color:var(--green);">LeCun + Zuckerberg + Steinberger + Musk</span>: 开源防止权力集中，加速创新，社会需要在实践中学习。信息在硅谷流通是其成功的原因。</div>
+  <div class="viewpoint"><span class="name" style="color:var(--orange);">Amodei + Altman</span>: 在 ASL-3+ 级别能力的模型上开源可能带来不可逆风险。需要负责任地评估每个能力水平的风险后才决定是否开源。</div>
+</div>
+
+<div class="topic-card">
+  <div class="topic-title">&#128188; 辩题三：AI 会取代工作吗？</div>
+  <div class="vs-bar">
+    <div style="width:60%;background:var(--blue);">工作会升级 (60%)</div>
+    <div style="width:40%;background:var(--yellow);">大规模替代 (40%)</div>
+  </div>
+  <div class="viewpoint"><span class="name" style="color:var(--blue);">Jensen Huang</span>: 程序员会从 3000 万增加到 10 亿。放射科 AI 超越人类后，放射科医生的需求反而增加了。工作的目的（解决问题）不同于任务（写代码）。</div>
+  <div class="viewpoint"><span class="name" style="color:var(--blue);">Steinberger</span>: 编程会像编织一样存活 — 人们因为热爱而做。但实际的代码编写将由 Agent 完成。80% 的 App 将被 AI Agent 取代。</div>
+  <div class="viewpoint"><span class="name" style="color:var(--yellow);">Hassabis</span>: 影响将是工业革命的 10 倍，但速度也是 10 倍 — 等于 100 倍的综合冲击。需要全民基本保障 (UBP)。</div>
+</div>
+</div>
+
+<!-- ==================== 预测 ==================== -->
+<div class="section" id="predictions">
+<h2>大牛们的预测</h2>
+
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-label">2026</div>
+    <div class="tl-content">
+      <strong>Peter Steinberger</strong>: 2026 是个人 Agent 元年。80% 的 App 将被 AI Agent 替代。"Vibe coding 时代结束了，这是 Agentic Engineering。"<br>
+      <strong>Dario Amodei</strong>: 集群规模将大到可以同时部署数百万个 AI 实例。
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-label">2027</div>
+    <div class="tl-content">
+      <strong>Jensen Huang</strong>: 电力和能源基础设施将在一年内超过芯片供应成为 AI 进步的主要瓶颈。<br>
+      <strong>Elon Musk</strong>: 下一个前沿是让 AI 答案在工程和物理领域足够可靠，可以用来发明新技术。
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-label">2028-2030</div>
+    <div class="tl-content">
+      <strong>Demis Hassabis</strong>: AI 系统将在几年内实现真正的科学创造力 — 独立提出新假说，而不仅仅是辅助。"AGI 的第 37 手" 将是 AI 独立提出一个通过专家验证的新物理学猜想。<br>
+      <strong>Sundar Pichai</strong>: 到 2030 年，无论是否正式称之为 AGI，社会都将在应对巨大的正面和负面外部性。
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-label">长期</div>
+    <div class="tl-content">
+      <strong>Jensen Huang</strong>: 世界上的程序员数量将从 3000 万增长到约 10 亿 — 因为编程正在变成规范说明（specification），每个木匠、水管工和会计师都将成为编码者。<br>
+      <strong>Yann LeCun</strong>: 未来每个数字世界的交互都将由个人 AI 助手中介 — 它充当垃圾信息、操纵和宣传的过滤器。
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ==================== 人物卡片 ==================== -->
+<div class="section" id="people">
+<h2>人物深度卡片</h2>
+<div class="person-grid">
+
+  <div class="person-card">
+    <div class="person-header">
+      <div class="avatar" style="background:linear-gradient(135deg,#6366f1,#a855f7);">DA</div>
+      <div><div class="person-name">Dario Amodei</div><div class="person-role">Anthropic CEO | Lex Fridman #452</div></div>
+    </div>
+    <p class="thesis">Scaling Laws 是现代 AI 的核心洞察。我们正在迅速耗尽令人信服的阻碍 — 真正有说服力的理由来解释为什么这件事不会在未来几年内发生。</p>
+    <div class="quote-box">"我们正在迅速耗尽令人信服的阻碍因素。"</div>
+    <div><span class="tag purple">Scaling Laws</span><span class="tag red">ASL 安全等级</span><span class="tag blue">生物加速</span><span class="tag">Constitutional AI</span></div>
+    <p style="margin-top:10px;font-size:0.82em;"><a href="https://lexfridman.com/dario-amodei-transcript/" target="_blank" style="color:var(--accent);">&#128279; 阅读完整逐字稿 (396K)</a></p>
+  </div>
+
+  <div class="person-card">
+    <div class="person-header">
+      <div class="avatar" style="background:linear-gradient(135deg,#10a37f,#22c55e);">SA</div>
+      <div><div class="person-name">Sam Altman</div><div class="person-role">OpenAI CEO | Lex Fridman #419</div></div>
+    </div>
+    <p class="thesis">算力将成为未来最珍贵的商品。AGI 之路必然是一场巨大的权力争夺。建设能承受巨大压力的韧性组织与技术工作本身同样重要。</p>
+    <div class="quote-box">"通往 AGI 的道路应该是一场巨大的权力争夺。我预期情况会是这样。"</div>
+    <div><span class="tag green">算力即货币</span><span class="tag yellow">董事会风波</span><span class="tag blue">GPT-5</span><span class="tag">$7T 投资</span></div>
+    <p style="margin-top:10px;font-size:0.82em;"><a href="https://lexfridman.com/sam-altman-2-transcript/" target="_blank" style="color:var(--accent);">&#128279; 阅读完整逐字稿 (156K)</a></p>
+  </div>
+
+  <div class="person-card">
+    <div class="person-header">
+      <div class="avatar" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);">DH</div>
+      <div><div class="person-name">Demis Hassabis</div><div class="person-role">Google DeepMind CEO | Lex Fridman #475</div></div>
+    </div>
+    <p class="thesis">自然界任何可以生成或发现的模式，都可以被经典学习算法高效发现和建模。影响将是工业革命的 10 倍，但速度也快 10 倍。</p>
+    <div class="quote-box">"我认为我们将看到大约 10 倍于工业革命的影响，但速度也快 10 倍。"</div>
+    <div><span class="tag blue">AlphaFold</span><span class="tag purple">Veo 3</span><span class="tag green">第 37 手</span><span class="tag">全民基本保障</span></div>
+    <p style="margin-top:10px;font-size:0.82em;"><a href="https://lexfridman.com/demis-hassabis-2-transcript/" target="_blank" style="color:var(--accent);">&#128279; 阅读完整逐字稿 (185K)</a></p>
+  </div>
+
+  <div class="person-card">
+    <div class="person-header">
+      <div class="avatar" style="background:linear-gradient(135deg,#84cc16,#22c55e);">JH</div>
+      <div><div class="person-name">Jensen Huang</div><div class="person-role">NVIDIA CEO | Lex Fridman #494</div></div>
+    </div>
+    <p class="thesis">AI 革命需要从 GPU 到机架的全栈极致协同设计。NVIDIA 的护城河不仅是芯片，而是整个栈加上 20 年的 CUDA 安装基数。</p>
+    <div class="quote-box">"我认为我们已经实现了 AGI。... 但 10 万个 Agent 建造一个 NVIDIA？概率为零。"</div>
+    <div><span class="tag yellow">全栈协同</span><span class="tag green">CUDA 20年</span><span class="tag blue">10亿程序员</span><span class="tag">Amdahl 定律</span></div>
+    <p style="margin-top:10px;font-size:0.82em;"><a href="https://lexfridman.com/jensen-huang-transcript/" target="_blank" style="color:var(--accent);">&#128279; 阅读完整逐字稿 (175K)</a></p>
+  </div>
+
+  <div class="person-card">
+    <div class="person-header">
+      <div class="avatar" style="background:linear-gradient(135deg,#ef4444,#f97316);">EM</div>
+      <div><div class="person-name">Elon Musk</div><div class="person-role">xAI / Tesla / SpaceX CEO | Lex Fridman #400</div></div>
+    </div>
+    <p class="thesis">AI 应该最大化追求真理，锚定物理学第一性原理，并有幽默感。最大的即时风险不是 AI 自主性，而是监管失灵和权力集中。</p>
+    <div class="quote-box">"我们被迫绑架了一只海豹，把它绑在板子上，戴上耳机播放音爆声，看它是否会痛苦。这是真实发生的事。"</div>
+    <div><span class="tag red">Grok</span><span class="tag yellow">AI 监管</span><span class="tag blue">模拟假说</span><span class="tag">第一性原理</span></div>
+    <p style="margin-top:10px;font-size:0.82em;"><a href="https://lexfridman.com/elon-musk-4-transcript/" target="_blank" style="color:var(--accent);">&#128279; 阅读完整逐字稿 (164K)</a></p>
+  </div>
+
+  <div class="person-card">
+    <div class="person-header">
+      <div class="avatar" style="background:linear-gradient(135deg,#4285f4,#34a853);">SP</div>
+      <div><div class="person-name">Sundar Pichai</div><div class="person-role">Google & Alphabet CEO | Lex Fridman #471</div></div>
+    </div>
+    <p class="thesis">AI 是人类有史以来最深刻的技术 — 比火和电更深刻。Google 通过 DeepMind 研究 + TPU 基础设施 + 触达数十亿用户的产品，拥有独特的实现这一愿景的定位。</p>
+    <div class="quote-box">"AI 将比火或电更深刻。... 底层风险确实很高。但我对人类挺身应对那一刻有很大信心。"</div>
+    <div><span class="tag blue">Gemini 50x增长</span><span class="tag green">Search AI 模式</span><span class="tag purple">AJI 概念</span><span class="tag">Google Beam</span></div>
+    <p style="margin-top:10px;font-size:0.82em;"><a href="https://lexfridman.com/sundar-pichai-transcript/" target="_blank" style="color:var(--accent);">&#128279; 阅读完整逐字稿 (156K)</a></p>
+  </div>
+
+  <div class="person-card">
+    <div class="person-header">
+      <div class="avatar" style="background:linear-gradient(135deg,#1877f2,#00c2ff);">MZ</div>
+      <div><div class="person-name">Mark Zuckerberg</div><div class="person-role">Meta CEO | Lex Fridman #398</div></div>
+    </div>
+    <p class="thesis">未来是物理与数字现实的无缝融合。照片级真实感的虚拟化身将实现当前 2D 视频通话无法提供的深层人际连接。开源 AI 和 Llama 是这个未来的关键基础设施。</p>
+    <div class="quote-box">"我是真人。这只是我的虚拟化身版本。"</div>
+    <div><span class="tag blue">元宇宙</span><span class="tag green">Llama 开源</span><span class="tag purple">AI 角色</span><span class="tag">Quest 3</span></div>
+    <p style="margin-top:10px;font-size:0.82em;"><a href="https://lexfridman.com/mark-zuckerberg-3-transcript/" target="_blank" style="color:var(--accent);">&#128279; 阅读完整逐字稿 (76K)</a></p>
+  </div>
+
+  <div class="person-card">
+    <div class="person-header">
+      <div class="avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">YL</div>
+      <div><div class="person-name">Yann LeCun</div><div class="person-role">Meta 首席AI科学家 | Lex Fridman #416</div></div>
+    </div>
+    <p class="thesis">自回归 LLM 根本不足以实现人类级智能。新架构 JEPA + 感官体验是必需的。权力集中比存在性风险危险得多。</p>
+    <div class="quote-box">"我认为通过专有 AI 系统导致权力集中的危险远大于其他一切。"</div>
+    <div><span class="tag red">LLM 不够</span><span class="tag green">JEPA 架构</span><span class="tag blue">世界模型</span><span class="tag yellow">反 AI 末日论</span></div>
+    <p style="margin-top:10px;font-size:0.82em;"><a href="https://lexfridman.com/yann-lecun-3-transcript/" target="_blank" style="color:var(--accent);">&#128279; 阅读完整逐字稿 (183K)</a></p>
+  </div>
+
+  <div class="person-card">
+    <div class="person-header">
+      <div class="avatar" style="background:linear-gradient(135deg,#8b5cf6,#ec4899);">PS</div>
+      <div><div class="person-name">Peter Steinberger</div><div class="person-role">OpenClaw 创始人 | Lex Fridman #491</div></div>
+    </div>
+    <p class="thesis">个人 AI Agent 时代已经到来。从语言到行动的范式转移。关键创新是给 AI Agent 完全的系统访问权限加上对自身源码的自我意识。</p>
+    <div class="quote-box">"我其实觉得 Vibe Coding 是个贬义词。我做的是 Agentic Engineering。凌晨三点之后才会切换到 Vibe Coding，然后第二天就后悔了。"</div>
+    <div><span class="tag purple">AI Agent</span><span class="tag green">开源</span><span class="tag red">80% App 消亡</span><span class="tag blue">MCP 已死</span></div>
+    <p style="margin-top:10px;font-size:0.82em;"><a href="https://lexfridman.com/peter-steinberger-transcript/" target="_blank" style="color:var(--accent);">&#128279; 阅读完整逐字稿 (258K)</a></p>
+  </div>
+
+</div>
+</div>
+
+</div>
+
+<footer style="text-align:center;padding:40px 0;color:var(--muted);font-size:0.82em;border-top:1px solid var(--border);margin-top:40px;">
+  <p>数据来源：<a href="https://lexfridman.com" target="_blank" style="color:var(--accent);">Lex Fridman Podcast</a> 公开逐字稿 | 知识萃取：AI Bubble Monitor</p>
+  <p>共 9 篇访谈 | 约 130 万字符 | 版权归原创作者所有 | 仅供个人研究学习</p>
+</footer>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
